@@ -11,14 +11,14 @@ import com.springboot.mssformulation.models.User;
 public interface UserService {
     UserDetailsService userDetailsService();
 
-    ResponseEntity<Page<User>> getUsers(Pageable pageable);
+    ResponseEntity<Page<User>> getAll(Pageable pageable);
 
-    User getUserDetails(Integer id);
+    User getDetails(Integer id);
 
-    String createUser(SignUpRequest signUpRequest);
+    String create(SignUpRequest signUpRequest);
 
-    String updateUser(User user);
+    String update(User user);
 
-    String deleteUser(Integer id);
+    String delete(Integer id);
 
 }

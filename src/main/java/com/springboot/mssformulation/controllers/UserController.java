@@ -26,30 +26,30 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public ResponseEntity<Page<User>> getUsers(@PageableDefault Pageable pageable) {
-        return userService.getUsers(pageable);
+    public ResponseEntity<Page<User>> getAll(@PageableDefault Pageable pageable) {
+        return userService.getAll(pageable);
     }
 
     @GetMapping("{id}")
-    public User getUserDetails(@PathVariable("id") Integer id) {
-        return userService.getUserDetails(id);
+    public User getDetails(@PathVariable("id") Integer id) {
+        return userService.getDetails(id);
     }
 
     @PostMapping
-    public String createUser(@RequestBody SignUpRequest signUpRequest) {
-        userService.createUser(signUpRequest);
+    public String create(@RequestBody SignUpRequest signUpRequest) {
+        userService.create(signUpRequest);
         return "User Created Successfully";
     }
 
     @PutMapping
-    public String updateUser(@RequestBody User user) {
-        userService.updateUser(user);
+    public String update(@RequestBody User user) {
+        userService.update(user);
         return "User Updated Successfully";
     }
 
     @DeleteMapping("{id}")
-    public String deleteUser(@PathVariable("id") Integer id) {
-        userService.deleteUser(id);
+    public String delete(@PathVariable("id") Integer id) {
+        userService.delete(id);
         return "User Deleted Successfully";
     }
 

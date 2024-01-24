@@ -36,17 +36,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseEntity<Page<User>> getUsers(Pageable pageable) {
+    public ResponseEntity<Page<User>> getAll(Pageable pageable) {
         return new ResponseEntity<>(userRepository.findAll(pageable), HttpStatus.OK);
     }
 
     @Override
-    public User getUserDetails(Integer id) {
+    public User getDetails(Integer id) {
         return userRepository.findById(id).get();
     }
 
     @Override
-    public String createUser(SignUpRequest signUpRequest) {
+    public String create(SignUpRequest signUpRequest) {
         User user = new User();
 
         user.setFirstName(signUpRequest.getFirstName());
@@ -62,13 +62,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String updateUser(User user) {
+    public String update(User user) {
         userRepository.save(user);
         return "Success";
     }
 
     @Override
-    public String deleteUser(Integer id) {
+    public String delete(Integer id) {
         userRepository.deleteById(id);
         return "Success";
     }
